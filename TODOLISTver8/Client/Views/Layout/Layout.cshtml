@@ -393,14 +393,16 @@
                         }*@
                         @if (_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
-                            <li><a asp-controller="User" asp-action="Main">ToDoLists</a></li>
+                            <li><a asp-controller="User" asp-action="todolistview">ToDoLists</a></li>
+                            //<li><a asp-controller="User" asp-action="Main">ToDoLists</a></li>
                             <li><a asp-controller="Supplier" asp-action="Index">Master Transaction Item</a></li>
                             <li><a asp-controller="Transaction" asp-action="Index">Transaction Item</a></li>
                             <li><a asp-controller="ExportPDFKendo" asp-action="Index">KendoExport</a></li>
                         }
                         @if (_signInManager.IsSignedIn(User) && User.IsInRole("User"))
                         {
-                            <li><a asp-controller="User" asp-action="Main">ToDoLists</a></li>
+                            <li><a asp-controller="User" asp-action="todolistview">ToDoLists</a></li>
+                            //<li><a asp-controller="User" asp-action="Main">ToDoLists</a></li>
                         }
                         @*}*@
 

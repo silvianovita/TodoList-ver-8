@@ -76,6 +76,16 @@ namespace Client.Controllers
             return RedirectToAction(nameof(Login));
 
         }
+
+        public IActionResult todolistview()
+        {
+            var id = HttpContext.Session.GetString("Id");
+            if (id != null)
+            {
+                return View();
+            }
+            return RedirectToAction(nameof(Main));
+        }
         public ActionResult Register()
         {
             var a = HttpContext.Session.GetString("Id");

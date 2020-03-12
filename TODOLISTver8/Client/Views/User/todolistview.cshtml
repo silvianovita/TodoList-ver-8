@@ -1,15 +1,14 @@
 ﻿
 @{
-    ViewData["Title"] = "Main";
+    ViewData["Title"] = "todolistview";
     Layout = "~/Views/Layout/Layout.cshtml";
 }
-<h1>Welcome</h1>
-<!--    <div class="card">
-        <div class="card-body">
-            <h5>Export Master Data</h5>
-            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Excel", "User")'">Excel</button>
-        </div>
+<div class="card">
+    <div class="card-body">
+        <h5>Export Master Data</h5>
+        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Excel", "User")'">Excel</button>
     </div>
+</div>
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">ToDo Lists</h4>
@@ -37,7 +36,6 @@
 </div>
 
 <!-- Modal -->
-<!--
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -68,7 +66,7 @@
 </div>
 <!-- Modal -->
 
-@*@section Scripts{
+@section Scripts{
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -83,4 +81,4 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="~/js/app.js"></script>
     <script src="~/Scripts/TodoLists.js"></script>
-}*@
+}
