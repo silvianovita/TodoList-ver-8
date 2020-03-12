@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Layout.cshtml";
+}
+<button id="export">Export to PDF</button>
+<div id="grid"></div>
+@section Scripts{
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/angular.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+
+    @*<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common.min.css">
+        <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.default.min.css">
+        <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <script src="http://kendo.cdn.telerik.com/2017.2.621/js/jszip.min.js"></script>
+        <script src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>*@
+    <script>
+        $("#grid").kendoGrid({
+            toolbar: ["pdf"],
+            pdf: {
+                forceProxy: true,
+                //proxyURL: "/proxy"
+                //proxyURL: "/ExportPDFKendo/save"
+                proxyURL: "@Url.Action("Save", "Users")"
+            },
+            dataSource: {
+                type: "odata",
+                transport: {
+                    read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                },
+                pageSize: 7
+            },
+            pageable: true,
+            columns: [
+                { width: 300, field: "ProductName", title: "Product Name" },
+                { field: "UnitsOnOrder", title: "Units On Order" },
+                { field: "UnitsInStock", title: "Units In Stock" }
+            ]
+        });
+        $("#export").click(function(e) {
+    var grid = $("#grid").data("kendoGrid");
+    grid.saveAsPDF();
+});
+    </script>
+}

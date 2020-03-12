@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Transaction Item</h4>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#transactionItemModal" onclick="clearTextBoxItem();">Add</button>
+        <br />
+        <table id="TransactionData" data-toggle="table" data-sort-name="stargazers_count" data-height="280" data-mobile-responsive="true" data-sort-order="desc" class="table">
+            <thead>
+                <tr>
+                    <th data-field="id" data-sortable="true"> Id </th>
+                    <th data-field="itemId" data-sortable="true" data-width="100"> ItemId </th>
+                    <th> quantity </th>
+                    <th data-field="Action" data-sortable="true"> Action </th>
+                </tr>
+            </thead>
+            <tbody class="TransactionDataTable"></tbody>
+        </table>
+    </div>
+</div>
+<!--Modal-->
+<div class="modal fade" id="transactionItemModal" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Form Item</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div><div class="modal-body">
+                <form>
+                    <div class="form-group" hidden="hidden">
+                        <label for="ID">ID</label>
+                        <input type="hidden" class="form-control" id="Id" placeholder=" ID" name="Id">
+                    </div>
+                    <div class="form-group">
+                        <label for="ItemId">Item Id</label>
+                        <input type="text" class="form-control" id="ItemId" placeholder="ItemId" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Quantity">Quantity</label>
+                        <input type="text" class="form-control" id="Quantity" placeholder="Quantity" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="Add" onclick="Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="UpdateItem" style="display:none;" onclick="UpdateItem();">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal-->
+
+@section Scripts{
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js "></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="~/js/app.js"></script>
+    <script src="~/Scripts/TransactionItem.js"></script>
+    <script src="~/js/moment.js"></script>
+}
